@@ -8,10 +8,25 @@ body {
 }
 
 #app {
-  width: 400px;
-  height: 400px;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.matching-game {
+  width: 350px;
+  height: 350px;
   background-color: #348498;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: #004d61;
+  margin: 10px;
 }
