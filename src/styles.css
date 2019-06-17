@@ -24,9 +24,36 @@ body {
   align-items: center;
 }
 
-.box {
+.match-box {
   width: 60px;
   height: 60px;
   background-color: #004d61;
   margin: 10px;
+  border: 1px solid #ccc;
+  perspective: 400px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  background-color: #5bd1d7;
+  transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
 }
