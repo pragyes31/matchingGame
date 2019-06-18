@@ -13,7 +13,8 @@ const imagesArray = [
   `<i class="fab fa-snapchat-square"></i>`,
   `<i class="fab fa-whatsapp-square"></i>`
 ];
-let backElemsArray = [...backElems];
+let backElemsArray = Array.from(backElems);
+//console.log(backElemsArray)
 const backImages = [...imagesArray, ...imagesArray];
 
 backImages.forEach((image, count) => {
@@ -24,15 +25,26 @@ backImages.forEach((image, count) => {
 
 function startGame() {
   let matchingArray = [];
+  let count = 0;
   cards.forEach(card => {
     card.addEventListener("click", function(e) {
       e.target.parentElement.className += " flipped";
-      if (matchingArray.length === 0) {
-        matchingArray.push(e.target.nextElementSibling.innerHTML);
-        console.log(matchingArray);
-      } else {
-        matchingArray.push(e.target.nextElementSibling.innerHTML);
-        if (matchingArray[0] === matchingArray[1]) {
+      //console.log(e.target.parentElement)
+      matchingArray.push(e.target.nextElementSibling);
+      if (matchingArray.length > 1) {
+        if (matchingArray[0].innerHTML === matchingArray[1].innerHTML) {
+          count += 2;
+          //console.log("boom");
+          if (count === 16) {
+            alert("you won!");
+          }
+        } else if (matchingArray[0].innerHTML !== matchingArray[1].innerHTML) {
+          console.log("boom");
+          matchingArray.forEach(elem => {
+            console.log(elem.parentElement.classList);
+            elem.parentElement.classList.remove("flipped");
+          });
+          matchingArray = [];
         }
       }
     });
