@@ -2,7 +2,7 @@ import "./styles.css";
 
 const cards = document.querySelectorAll(".card");
 const backElems = document.querySelectorAll(".back");
-console.log(backElems);
+
 const imagesArray = [
   `<i class="fab fa-twitter-square"></i>`,
   `<i class="fab fa-facebook-square"></i>`,
@@ -20,11 +20,23 @@ backImages.forEach((image, count) => {
   let randomCard = Math.floor(Math.random() * backElemsArray.length);
   backElemsArray[randomCard].innerHTML = image;
   backElemsArray.splice(randomCard, 1);
-  console.log(count);
 });
 
-cards.forEach(card => {
-  card.addEventListener("click", function(e) {
-    e.target.parentElement.classList.toggle("flipped");
+function startGame() {
+  let matchingArray = [];
+  cards.forEach(card => {
+    card.addEventListener("click", function(e) {
+      e.target.parentElement.className += " flipped";
+      if (matchingArray.length === 0) {
+        matchingArray.push(e.target.nextElementSibling.innerHTML);
+        console.log(matchingArray);
+      } else {
+        matchingArray.push(e.target.nextElementSibling.innerHTML);
+        if (matchingArray[0] === matchingArray[1]) {
+        }
+      }
+    });
   });
-});
+}
+
+startGame();
