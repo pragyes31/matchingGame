@@ -14,6 +14,7 @@ function buildMatchingGame() {
     `<i class="fab fa-whatsapp-square"></i>`
   ];
   const backImages = [...imagesArray, ...imagesArray];
+  let count = 0;
   const matchingGame = {
     createBox: () => {
       const matchBox = document.createElement("section");
@@ -51,22 +52,21 @@ function buildMatchingGame() {
       const cards = document.querySelectorAll(".card");
       cards.forEach(card => {
         card.addEventListener("click", function(e) {
+          count++;
           e.target.parentElement.className += " flipped";
           setTimeout(() => {
             matchingArray.push(e.target.nextElementSibling);
-            if (matchingArray.length === 2) {
-              if (matchingArray[0].innerHTML === matchingArray[1].innerHTML) {
-                matchedArray = [...matchedArray, ...matchingArray];
-                matchingArray = [];
-                if (matchedArray.length === 16) {
-                  alert("you won!");
-                }
-              } else {
-                matchingArray.forEach(elem => {
-                  elem.parentElement.classList.remove("flipped");
-                });
-                matchingArray = [];
+            if (matchingArray[0].innerHTML === matchingArray[1].innerHTML) {
+              matchedArray = [...matchedArray, ...matchingArray];
+              matchingArray = [];
+              if (matchedArray.length === 16) {
+                alert(`it took only ${count} turns to win this :)`);
               }
+            } else {
+              matchingArray.forEach(elem => {
+                elem.parentElement.classList.remove("flipped");
+              });
+              matchingArray = [];
             }
           }, 1000);
         });
