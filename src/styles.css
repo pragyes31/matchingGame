@@ -10,8 +10,9 @@ body {
 #app {
   height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
 }
 
 .matching-game {
