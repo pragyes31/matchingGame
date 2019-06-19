@@ -77,9 +77,9 @@ function buildMatchingGame() {
     resetGame: e => {
       const cards = document.querySelectorAll(".card");
       cards.forEach(card => {
-        //console.log(card.parentElement.classList)
         setTimeout(() => {
           card.classList.remove("flipped");
+          countDiv.innerHTML = 0;
         }, 500);
       });
     }
