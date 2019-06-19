@@ -3,6 +3,7 @@ import "./styles.css";
 function buildMatchingGame() {
   const gameDiv = document.querySelector(".matching-game");
   const resetBtn = document.querySelector(".reset");
+  const countDiv = document.querySelector(".count");
   const imagesArray = [
     `<i class="fab fa-twitter-square"></i>`,
     `<i class="fab fa-facebook-square"></i>`,
@@ -53,6 +54,7 @@ function buildMatchingGame() {
       cards.forEach(card => {
         card.addEventListener("click", function(e) {
           count++;
+          countDiv.innerHTML = count;
           e.target.parentElement.className += " flipped";
           setTimeout(() => {
             matchingArray.push(e.target.nextElementSibling);
