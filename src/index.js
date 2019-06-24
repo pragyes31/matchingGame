@@ -16,6 +16,8 @@ function buildMatchingGame() {
   ];
   const backImages = [...imagesArray, ...imagesArray];
   let count = 0;
+  let matchingArray = [];
+  let matchedArray = [];
   const matchingGame = {
     createBox: () => {
       const matchBox = document.createElement("section");
@@ -48,23 +50,23 @@ function buildMatchingGame() {
       });
     },
     startGame: () => {
-      let matchingArray = [];
-      let matchedArray = [];
       const cards = document.querySelectorAll(".card");
       cards.forEach(card => {
         card.addEventListener("click", function(e) {
-          count++;
+          if (!count) count++;
           countDiv.innerHTML = count;
           e.target.parentElement.className += " flipped";
           setTimeout(() => {
             matchingArray.push(e.target.nextElementSibling);
             if (matchingArray[0].innerHTML === matchingArray[1].innerHTML) {
+              count++;
               matchedArray = [...matchedArray, ...matchingArray];
               matchingArray = [];
               if (matchedArray.length === 16) {
                 alert(`it took only ${count} turns to win this :)`);
               }
             } else {
+              count++;
               matchingArray.forEach(elem => {
                 elem.parentElement.classList.remove("flipped");
               });
@@ -80,6 +82,9 @@ function buildMatchingGame() {
         setTimeout(() => {
           card.classList.remove("flipped");
           countDiv.innerHTML = 0;
+          count = 0;
+          matchingArray = [];
+          matchedArray = [];
         }, 500);
       });
     }
