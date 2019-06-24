@@ -1,4 +1,3 @@
-
 function buildMatchingGame() {
   const gameDiv = document.querySelector(".matching-game");
   const resetBtn = document.querySelector(".reset");
@@ -62,6 +61,7 @@ function buildMatchingGame() {
               matchedArray = [...matchedArray, ...matchingArray];
               matchingArray = [];
               if (matchedArray.length === 16) {
+                count--;
                 alert(`it took only ${count} turns to win this :)`);
               }
             } else {
