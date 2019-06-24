@@ -1,4 +1,3 @@
-import "./styles.css";
 
 function buildMatchingGame() {
   const gameDiv = document.querySelector(".matching-game");
