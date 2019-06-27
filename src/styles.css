@@ -21,6 +21,11 @@ body {
   padding-right: 5px;
 }
 
+.heading,
+.turn-count {
+  text-align: center;
+}
+
 .matching-game {
   width: 350px;
   height: 350px;
@@ -70,4 +75,10 @@ body {
   align-items: center;
   justify-content: center;
   padding-top: 7px;
+}
+
+@media screen and (max-width: 540px) {
+  .heading {
+    font-size: 2rem;
+  }
 }
