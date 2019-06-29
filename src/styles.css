@@ -27,22 +27,16 @@ body {
 }
 
 .matching-game {
-  width: 350px;
-  height: 350px;
   background-color: #348498;
   display: grid;
   grid-template-columns: 60px 60px 60px 60px;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center; */
+  grid-gap: 20px;
 }
 
 .match-box {
   width: 60px;
   height: 60px;
   background-color: #004d61;
-  margin: 10px;
   border: 1px solid #ccc;
   perspective: 400px;
 }
@@ -79,12 +73,12 @@ body {
   padding-top: 7px;
 }
 
-@media screen and (max-width: 540px) {
+@media (max-width: 480px) {
   .heading {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
   .matching-game {
-    grid-template-columns: 60px 60px 60px;
+    grid-template-columns: 60px 60px;
   }
 }
