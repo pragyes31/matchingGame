@@ -54,17 +54,21 @@ function buildMatchingGame() {
           if (!count) count++;
           countDiv.innerHTML = count;
           e.target.parentElement.className += " flipped";
+          console.log(e.target.nextElementSibling);
           setTimeout(() => {
             matchingArray.push(e.target.nextElementSibling);
-            if (matchingArray[0].innerHTML === matchingArray[1].innerHTML) {
+            if (
+              matchingArray.length > 1 &&
+              matchingArray[0].innerHTML === matchingArray[1].innerHTML
+            ) {
               count++;
               matchedArray = [...matchedArray, ...matchingArray];
               matchingArray = [];
               if (matchedArray.length === 16) {
                 count--;
-                alert(`it took only ${count} turns to win this :)`);
+                alert(`Woah! It took you only ${count} turns to win this :)`);
               }
-            } else {
+            } else if (matchingArray.length > 1) {
               count++;
               matchingArray.forEach(elem => {
                 elem.parentElement.classList.remove("flipped");
