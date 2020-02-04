@@ -7,7 +7,7 @@ body {
 }
 
 #app {
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -73,12 +73,32 @@ body {
   padding-top: 7px;
 }
 
+.reset {
+  margin: 20px 0px;
+  width: 150px;
+  height: 25px;
+  font-size: 13.5px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px #40514e;
+  background-color: #bdcc65;
+  color: #333;
+}
+
+.reset:active {
+  box-shadow: 0 1px #999;
+  transform: translateY(2px);
+}
+
 @media (max-width: 480px) {
   .heading {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .matching-game {
-    grid-template-columns: 60px 60px;
+    grid-template-columns: 60px 60px 60px;
   }
 }
